@@ -1,0 +1,59 @@
+type Customer{
+id:ID!, 
+name:String,
+email:String,
+gender:String,
+products:[Product]!
+}
+type Product{
+pid:ID!
+pname:String,
+qty:Int,
+price:Int
+
+}
+type Query
+{
+customers :[Customer]!
+customer(id: ID):Customer
+
+}
+input customerInput
+{
+ 
+name:String,
+email:String,
+gender:String,
+products:[ProductInput]!
+}
+input ProductInput
+{
+
+pname:String,
+qty:Int,
+price:Int
+}
+input customerUpdateInput
+{
+name:String,
+email:String,
+gender:String,
+
+}
+
+
+
+type Mutation
+{
+addCustomerbygraphql(input:customerInput):Customer
+deleteCustomerbygraphql(id:Int):Boolean
+deleteProductbygraphql(pid:Int):Boolean
+updateCustomerbygraphql(id:Int,input:customerUpdateInput):Customer
+}
+
+
+
+
+
+
+
